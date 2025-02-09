@@ -8,14 +8,13 @@ from faker import Faker
 
 fake = Faker()
 
-# Create sample users
 user1 = User(name=fake.name(), fitness_goal="Muscle Gain")
 user2 = User(name=fake.name(), fitness_goal="Weight Loss")
 
 session.add_all([user1, user2])
 session.commit()
 
-# Create workouts for users
+
 workouts = [
     Workout(user_id=user1.id, workout_type="Strength Training", duration=45),
     Workout(user_id=user1.id, workout_type="Cardio", duration=30),

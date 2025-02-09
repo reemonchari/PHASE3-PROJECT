@@ -4,10 +4,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import datetime
 
-# Initialize the Base class
 Base = declarative_base()
 
-# Define User model
 class User(Base):
     __tablename__ = "users"
 
@@ -20,7 +18,7 @@ class User(Base):
     def __repr__(self):
         return f"<User(name={self.name}, goal={self.fitness_goal})>"
 
-# Define Workout model
+
 class Workout(Base):
     __tablename__ = "workouts"
 
@@ -35,7 +33,6 @@ class Workout(Base):
     def __repr__(self):
         return f"<Workout(type={self.workout_type}, duration={self.duration} mins)>"
 
-# Database connection setup
 DATABASE_URL = "sqlite:///fitness_fusion.db"
 engine = create_engine(DATABASE_URL)
 Session = sessionmaker(bind=engine)
