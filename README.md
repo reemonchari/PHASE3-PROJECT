@@ -1,104 +1,83 @@
-```
-# Fitness Fusion - Virtual Fitness Coach (CLI App)
+# 🏋️‍♂️ Fitness Fusion CLI
 
-## 📌 Introduction
-Welcome to **Fitness Fusion**, a CLI-based virtual fitness coach that helps users:
-- Set fitness goals (e.g., weight loss, muscle gain)
-- Log workouts easily
-- Track progress with a progress tracking system
-- Generate reports summarizing fitness activities
-- Receive motivational quotes and fitness tips
+**Fitness Fusion** is a **command-line application** designed to help users set fitness goals, log workouts, track progress, and stay motivated on their fitness journey.
 
-This project is built using **Python, SQLAlchemy ORM, and Click for CLI handling**.
+## 📌 Features
 
----
+- **Set Fitness Goals** (e.g., weight loss, muscle gain)
+- **Log Workouts** with ease
+- **Track Progress** and view workout history
+- **Generate Reports** summarizing fitness activities
+- **Receive Motivational Quotes & Fitness Tips**
 
-## ⚙️ Installation & Setup
+## 🛠️ Technologies Used
 
-### 1️⃣ Clone the Repository
-```
-git clone https://github.com/reemonchari/PHASE3-PROJECT.git
-cd PHASE3-PROJECT
-```
+- **Python** (CLI functionality)
+- **SQLAlchemy** (Database ORM)
+- **SQLite** (Database storage)
+- **Click or Fire** (Command-line handling)
+- **Alembic** (Database migrations)
 
-### 2️⃣ Set Up a Virtual Environment
-```
-pipenv install
-pipenv shell
-```
+## 🚀 Installation & Setup
 
-### 3️⃣ Initialize and Migrate the Database
-```
-cd lib/db
-alembic upgrade head
-```
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/yourusername/fitness-fusion-cli.git
+   cd fitness-fusion-cli
+   ```
 
-### 4️⃣ Seed the Database (Optional)
-```
-python seed.py
-```
+2. **Create and activate a virtual environment:**
+   ```sh
+   python3 -m venv venv
+   source venv/bin/activate  # On macOS/Linux
+   venv\Scripts\activate  # On Windows
+   ```
 
----
+3. **Install dependencies:**
+   ```sh
+   pip install -r requirements.txt
+   ```
 
-## 🎮 Usage
-Run the CLI application using:
-```
+4. **Set up the database:**
+   ```sh
+   alembic upgrade head
+   python seed.py  # Populate the database with sample data
+   ```
+
+## 📌 Usage
+
+Run the CLI using:
+```sh
 python cli.py --help
 ```
 
 ### Available Commands
-```
-python cli.py add-user           # Add a new user
-python cli.py list-users         # List all users
-python cli.py delete-user        # Delete a user
-python cli.py add-workout        # Add a workout for a user
-python cli.py view-workouts      # View all workouts for a user
-```
 
----
+- **List all users:**
+  ```sh
+  python cli.py list-users
+  ```
 
-## 🗄️ Database Schema
-### Tables:
-1. **User** (*id, name, fitness_goal*)
-2. **Workout** (*id, user_id, workout_type, duration*)
-   - One-to-Many relationship: **User → Workouts**
+- **View a user's workouts:**
+  ```sh
+  python cli.py view-workouts --user_id <user_id>
+  ```
 
----
+- **Add a workout:**
+  ```sh
+  python cli.py add-workout --user_id <user_id> --name "Cardio" --duration 30
+  ```
 
-## 🏆 Features
-✅ User Management (Create, List, Delete Users)  
-✅ Workout Logging (Add & View Workouts)  
-✅ Progress Tracking  
-✅ Motivational Tips  
-✅ Data Validation & Error Handling  
-✅ Alembic Migrations for DB Schema  
-✅ Faker for Seeding Data  
+- **Update a user's fitness goal:**
+  ```sh
+  python cli.py update-goal --user_id <user_id> --goal "Muscle Gain"
+  ```
 
----
-
-## 🛠 Tech Stack
-- **Python** (Main Language)
-- **SQLAlchemy ORM** (Database Management)
-- **Click** (For CLI Interactions)
-- **Alembic** (Migrations)
-- **Faker** (Mock Data)
-
----
-
-## ❗ Important Notes
-- Ensure you are running commands **inside the Pipenv shell** (`pipenv shell`).
-- Always run `alembic upgrade head` after modifying database models.
-- If you encounter errors, check dependencies using `pipenv graph`.
-
----
-
-## 👨‍💻 Author
-**Monchari Ree**  
-GitHub: [reemonchari](https://github.com/reemonchari)
-
----
+- **Delete a workout:**
+  ```sh
+  python cli.py delete-workout --workout_id <workout_id>
+  ```
 
 ## 📜 License
-This project is licensed under the **MIT License**.
-```
 
+This project is open-source and available under the **MIT License**.
