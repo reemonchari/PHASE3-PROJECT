@@ -5,8 +5,10 @@ name = "pypi"
 
 [packages]
 ipdb = "*"
-sqlalchemy = "*"
 alembic = "*"
+sqlalchemy = "*"
+click = "*"
+faker = "*"
 
 [dev-packages]
 
